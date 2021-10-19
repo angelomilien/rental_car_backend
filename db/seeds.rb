@@ -2,22 +2,43 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require "faker"
 
 
-# bird_a = Bird.create(name: "Black-Capped Chickadee", species: "Poecile Atricapillus")
-# bird_b = Bird.create(name: "Grackle", species: "Quiscalus Quiscula")
-# bird_c = Bird.create(name: "Common Starling", species: "Sturnus Vulgaris")
-# bird_d = Bird.create(name: "Mourning Dove", species: "Zenaida Macroura")
+avis = RentalCompany.create(name: 'Avis', location: "suffolk", inventory:0)  
+budget = RentalCompany.create(name: 'Budget', location: "suffolk", inventory:0)
+enterprise = RentalCompany.create(name: 'Enterprise', location: "suffolk", inventory:0)
 
-# location_a = Location.create(latitude: "40.730610", longitude: "-73.935242")
-# location_b = Location.create(latitude: "30.26715", longitude: "-97.74306")
-# location_c = Location.create(latitude: "45.512794", longitude: "-122.679565")
 
-# sighting_a = Sighting.create(bird: bird_a, location: location_a)
-# sighting_b = Sighting.create(bird: bird_b, location: location_b)
-# sighting_c = Sighting.create(bird: bird_c, location: location_a)
-# sighting_d = Sighting.create(bird: bird_d, location: location_c)
-# sighting_e = Sighting.create(bird: bird_a, location: location_b)
+vehicle_1 = Vehicle.create(
+   make: Faker::Vehicle.make,
+   model:Faker::Vehicle.model(make_of_model: Faker::Vehicle.make),
+   transmission:Faker::Vehicle.transmission,
+   fuel_type:Faker::Vehicle.fuel_type,
+   doors:Faker::Vehicle.door_count,
+   mileage:Faker::Vehicle.mileage,
+   year:Faker::Vehicle.year,
+   rental_company_id: avis.id
+)
+
+vehicle_2 = Vehicle.create(
+    make: Faker::Vehicle.make,
+    model:Faker::Vehicle.model(make_of_model: Faker::Vehicle.make),
+    transmission:Faker::Vehicle.transmission,
+    fuel_type:Faker::Vehicle.fuel_type,
+    doors:Faker::Vehicle.door_count,
+    mileage:Faker::Vehicle.mileage,
+    year:Faker::Vehicle.year,
+    rental_company_id: budget.id
+ )
+
+ vehicle_3 = Vehicle.create(
+    make: Faker::Vehicle.make,
+    model:Faker::Vehicle.model(make_of_model: Faker::Vehicle.make),
+    transmission:Faker::Vehicle.transmission,
+    fuel_type:Faker::Vehicle.fuel_type,
+    doors:Faker::Vehicle.door_count,
+    mileage:Faker::Vehicle.mileage,
+    year:Faker::Vehicle.year,
+    rental_company_id: enterprise.id
+ )

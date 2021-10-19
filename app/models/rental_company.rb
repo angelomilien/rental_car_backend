@@ -1,3 +1,3 @@
 class RentalCompany < ApplicationRecord
-    # has_many :cars
+    has_many :vehicles
 end
