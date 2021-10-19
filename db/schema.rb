@@ -10,27 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_19_003653) do
-
-  create_table "rental_companies", force: :cascade do |t|
-    t.string "name"
-    t.string "location"
-    t.integer "inventory"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "vehicles", force: :cascade do |t|
-    t.string "make"
-    t.string "model"
-    t.string "transmission"
-    t.string "fuel_type"
-    t.integer "doors"
-    t.integer "mileage"
-    t.integer "year"
-    t.integer "rental_company_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 0) do
 
 end
