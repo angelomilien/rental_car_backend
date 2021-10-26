@@ -11,36 +11,36 @@ class VehiclesController < ApplicationController
     #     render json: comment
     # end
     
-    # def create 
-    #     comment = Comment.new(comment_params)
-    #     # byebug
-    #     if comment.save 
-    #         render json: comment
-    #     else
-    #         render json: {error: "Couldnt be saved"}
-    #     end
-    # end
+    def create 
+        vehicle = Vehicle.new(vehicle_params)
+        # byebug
+        if vehicle.save 
+            render json: vehicle
+        else
+            render json: {error: "Couldnt be saved"}
+        end
+    end
     
     # def update
     #     #  byebug
-    #     comment = Comment.find_by_id(params[:id])
-    #     if comment.update(comment_params)
-    #         render json: comment
+    #     vehicle = vehicle.find_by_id(params[:id])
+    #     if vehicle.update(vehicle_params)
+    #         render json: vehicle
     #     else
     #         render json: {error: "Couldn't Update"}
     #     end
     # end
     
     # def destroy
-    #     comment = Comment.find_by_id(params[:id])
-    #     comment.destroy
-    #     render json: {message: "Successfully deleted #{comment.title}"}
+    #     vehicle = vehicle.find_by_id(params[:id])
+    #     vehicle.destroy
+    #     render json: {message: "Successfully deleted #{vehicle.title}"}
     # end
     
     # private
     
-    # def comment_params 
-    #     params.require(:comment).permit(:title, :description, :villian_id)
-    # end
+    def vehicle_params 
+        params.require(:vehicle).permit(:make, :model, :transmission, :fuel_type, :door, :mileage, :year, :rental_company_id)
+    end
 
 end
