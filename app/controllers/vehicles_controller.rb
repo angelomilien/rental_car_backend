@@ -13,7 +13,6 @@ class VehiclesController < ApplicationController
     
     def create 
         vehicle = Vehicle.new(vehicle_params)
-        # byebug
         if vehicle.save 
             render json: vehicle
         else
@@ -21,26 +20,25 @@ class VehiclesController < ApplicationController
         end
     end
     
-    # def update
-    #     #  byebug
-    #     vehicle = vehicle.find_by_id(params[:id])
-    #     if vehicle.update(vehicle_params)
-    #         render json: vehicle
-    #     else
-    #         render json: {error: "Couldn't Update"}
-    #     end
-    # end
+    def update
+        vehicle = Vehicle.find_by_id(params[:id])
+        if vehicle.update(vehicle_params)
+            render json: vehicle
+        else
+            render json: {error: "Couldn't Update"}
+        end
+    end
     
-    # def destroy
-    #     vehicle = vehicle.find_by_id(params[:id])
-    #     vehicle.destroy
-    #     render json: {message: "Successfully deleted #{vehicle.title}"}
-    # end
+    def destroy
+        vehicle =Vehicle.find_by_id(params[:id])
+        vehicle.destroy
+        render json: {message: "Successfully deleted #{vehicle.make} #{vehicle.model}"}
+    end
     
     # private
     
     def vehicle_params 
-        params.require(:vehicle).permit(:make, :model, :transmission, :fuel_type, :door, :mileage, :year, :rental_company_id)
+        params.require(:vehicle).permit(:make, :model, :transmission, :fuel_type, :doors, :mileage, :year, :rental_company_id)
     end
 
 end
